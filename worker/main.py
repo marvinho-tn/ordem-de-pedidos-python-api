@@ -3,7 +3,7 @@ import pika
 from consumers.orders_consumer import handle_order
 from infra.config.env import settings
 
-# Função principal para iniciar o consumidor de conselhos
+
 def main():
     credentials = pika.PlainCredentials(
         username=settings.rabbitmq_user,

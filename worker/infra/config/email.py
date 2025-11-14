@@ -10,7 +10,6 @@ def send_email(to: str, subject: str, message: str):
     msg['To'] = to
     msg.set_content(message)
 
-    # Conexão com servidor SMTP do Gmail
     s = smtplib.SMTP(settings.smtp_host, int(settings.smtp_port))
     s.send_message(msg)
     s.quit()

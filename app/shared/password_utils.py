@@ -6,7 +6,6 @@ def is_valid_password(password: str) -> bool:
     if len(password) < 8:
         return False
 
-    # Regex para cada requisito
     has_upper = re.search(r"[A-Z]", password)
     has_lower = re.search(r"[a-z]", password)
     has_digit = re.search(r"\d", password)
@@ -15,7 +14,6 @@ def is_valid_password(password: str) -> bool:
     return all([has_upper, has_lower, has_digit, has_special])
 
 def hash_password(password: str) -> str:
-    # Gera o salt e o hash
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
     return hashed.decode('utf-8')

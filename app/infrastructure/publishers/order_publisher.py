@@ -15,7 +15,7 @@ def publish_order(order: Order, user: User):
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(
             host=settings.rabbitmq_host,
-            port=5672,  # porta padrão do RabbitMQ
+            port=5672,
             credentials=credentials
         )
     )

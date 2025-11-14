@@ -9,24 +9,20 @@ from infrastructure.repositories.user_repository import PostgresUserRepository
 
 router = APIRouter()
 
-@router.post('/', response_model=dict)  # depois você pode trocar para CreateUserOutput
+@router.post('/', response_model=dict)
 def create_user(input: CreateUserInput, db: Session = Depends(get_db)):
-    # cria os repositórios com a sessão do banco
     user_repo = PostgresUserRepository(db)
-
-    # instancia o use case
     usecase = CreateUserUseCase(user_repository=user_repo)
 
-    # executa
     result = usecase.execute(input)
 
-    # retorna o objeto de sucesso ou erros
-    return result.to_dict()  # supondo que ValidationResultList tenha um método para serializar
+    return result.to_dict()
 
 @router.get('/:email', response_model=dict)
 def get_by_email(email: str, db: Session = Depends(get_db)):
     user_repo = PostgresUserRepository(db)
     usecase = GetUserByEmailUseCase(user_repository=user_repo)
+
     result = usecase.execute(email)
 
     return result.to_dict()

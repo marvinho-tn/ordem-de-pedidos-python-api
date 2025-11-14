@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings
 
-# Classe de configurações da aplicação carregadas de variáveis de ambiente
+
 class Settings(BaseSettings):
     smtp_host: str
     smtp_port: int
