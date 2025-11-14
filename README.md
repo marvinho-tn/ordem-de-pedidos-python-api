@@ -21,8 +21,8 @@ Este projeto é composto por:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/orders-system.git
-cd orders-system
+git clone https://github.com/marvinho-tn/ordem-de-pedidos-python-api.git
+cd ordem-de-pedidos-python-api
 ```
 
 ### 2. Suba os serviços com Docker
@@ -78,6 +78,8 @@ RABBITMQ_HOST=rabbitmq
 RABBITMQ_USER=admin
 RABBITMQ_PASSWORD=1234
 ```
+
+- **Observação**: é preciso criar o arquivo `.env` na raiz do worker e do app
 
 ---
 
