@@ -3,14 +3,14 @@ from enum import Enum
 
 class BaseEnum(Enum):
     @classmethod
-    def try_get_from_str(cls, value:str):
+    def try_get_from_str(cls, value:str) -> str:
         try:
             return cls(value)
         except ValueError:
             return None 
         
     @classmethod
-    def is_valid_value(cls, value:str):
+    def is_valid_value(cls, value:str) -> bool:
         try:
             item = cls(value)
 

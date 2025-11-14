@@ -4,9 +4,10 @@ from typing import List
 
 @dataclass
 class ValidationResult:
-    message: str
-    field: str
-    code: int
+    def __init__(self, code: int, field: str):
+        self.message = self.ERROR_MESSAGES.get(code, 'erro desconhecido')
+        self.field = field
+        self.code = code
 
     ERROR_MESSAGES = {
         422001: 'o request não pode ser nulo ou vazio.',
@@ -32,11 +33,6 @@ class ValidationResult:
         404002: 'user email não encontrado.',
         404003: 'id não encontrado.',
     }
-
-    def __init__(self, code: int, field: str):
-        self.message = self.ERROR_MESSAGES.get(code, 'erro desconhecido')
-        self.field = field
-        self.code = code
 
 
 class ValidationResultList:
