@@ -71,10 +71,11 @@ RABBITMQ_PASSWORD=1234
 ### 📁 `worker/.env`
 
 ```env
-ORDERS_API_HOST=http://localhost:8000
-SMTP_HOST=smtp
+ORDERS_API_HOST=http://127.0.0.1:8000
+SMTP_HOST=localhost
 SMTP_PORT=2525
-RABBITMQ_HOST=rabbitmq
+SMTP_EMAIL_FROM=seu-email@mail.com
+RABBITMQ_HOST=localhost
 RABBITMQ_USER=admin
 RABBITMQ_PASSWORD=1234
 ```

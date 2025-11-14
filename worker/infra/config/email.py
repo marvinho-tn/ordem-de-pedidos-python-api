@@ -6,7 +6,7 @@ from infra.config.env import settings
 def send_email(to: str, subject: str, message: str):
     msg = EmailMessage()
     msg['Subject'] = subject
-    msg['From'] = "marvinthomaz@gmail.com"
+    msg['From'] = settings.smtp_email_from
     msg['To'] = to
     msg.set_content(message)
 
