@@ -11,9 +11,6 @@ class OrderExternalService:
         with httpx.Client() as client:
             response = client.get(f"{OrderExternalService.BASE_URL}/orders/{id}/update-status")
             data = response.json()
-
-            print(data)
-
             result = data["result"]
             
             if not result is None:

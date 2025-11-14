@@ -1,8 +1,15 @@
+import logging
 import pika
 
 from consumers.orders_consumer import handle_order
 from infra.config.env import settings
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
+)
+
+logger = logging.getLogger("main")
 
 def main():
     credentials = pika.PlainCredentials(
@@ -26,7 +33,7 @@ def main():
 
     channel.queue_bind(exchange=exchange_name, queue=queue_name, routing_key="orders.new")
 
-    print("[*] Worker listening for orders...")
+    logger.info("Worker listening for orders...")
 
     channel.basic_consume(queue=queue_name, on_message_callback=handle_order, auto_ack=True)
     channel.start_consuming()

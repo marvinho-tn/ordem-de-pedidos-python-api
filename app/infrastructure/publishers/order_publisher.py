@@ -1,10 +1,12 @@
 import json
+import logging
 import pika
 
 from domain.models.order import Order
 from domain.models.user import User
 from infrastructure.config.env import settings
 
+logger = logging.getLogger("order_publisher")
 
 def publish_order(order: Order, user: User):
     credentials = pika.PlainCredentials(
@@ -36,6 +38,10 @@ def publish_order(order: Order, user: User):
         body=json.dumps(message)
     )
 
-    print(f'Order created message successed published: {message}')
+    logger.info('Order created message successed published', extra={
+        'id': order.id, 
+        'user_id': order.user_id, 
+        'email': user.email
+    })
 
     connection.close()

@@ -1,12 +1,14 @@
 import json
+import logging
 
 from infra.config.env import settings
 from infra.config.email import send_email
 from services.order_external_service import OrderExternalService
 
+logger = logging.getLogger("orders_consumer")
 
 def handle_order(ch, method, properties, body):
-    print(f'Start processing order with body {body}...')
+    logger.info(f'Start processing order message...')
 
     message = json.loads(body)
     email = message["email"]
@@ -23,4 +25,4 @@ def handle_order(ch, method, properties, body):
 
     send_email(email, 'Seu pedido precisa de aprovação', mail_message)
 
-    print('Email message sended, process finished worker.')
+    logger.info('Email message sended, process finished worker.')
