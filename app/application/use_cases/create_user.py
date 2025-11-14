@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 
-from application.errror_messages import EMAIL_NULL, EXISTANT_EMAIL, INVALID_EMAIL, INVALID_PASSWORD, PASSWORD_NULL, NAME_NULL, REQUEST_NULL
+from application.errror_codes import EMAIL_NULL, EXISTANT_EMAIL, INVALID_EMAIL, INVALID_PASSWORD, PASSWORD_NULL, NAME_NULL, REQUEST_NULL
 from domain.models.user import User
 from domain.repositories.user_repository import UserRepository
 from shared.email_utils import is_valid_email

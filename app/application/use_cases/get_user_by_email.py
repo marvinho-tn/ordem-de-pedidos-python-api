@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from application.errror_messages import EMAIL_NULL, INVALID_EMAIL, NAME_NULL, USER_EMAIL_NOT_FOUND
+from application.errror_codes import EMAIL_NULL, INVALID_EMAIL, NAME_NULL, USER_EMAIL_NOT_FOUND
 from domain.repositories.user_repository import UserRepository
 from shared.email_utils import is_valid_email
 from shared.validation_result import ValidationResultList

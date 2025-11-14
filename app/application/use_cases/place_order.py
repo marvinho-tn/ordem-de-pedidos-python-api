@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 import uuid
 
-from application.errror_messages import INVALID_USER_ID, REQUEST_NULL, USER_ID_NOT_FOUND, USER_ID_NULL, VALUE_CANNOT_BE_LESS_THAN_ZERO
+from application.errror_codes import INVALID_USER_ID, REQUEST_NULL, USER_ID_NOT_FOUND, USER_ID_NULL, VALUE_CANNOT_BE_LESS_THAN_ZERO
 from domain.models.order import Order
 from domain.repositories.order_repository import OrderRepository
 from domain.repositories.user_repository import UserRepository

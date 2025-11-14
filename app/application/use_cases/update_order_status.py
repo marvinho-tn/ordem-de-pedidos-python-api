@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import uuid
 
-from application.errror_messages import ID_NOT_FOUND, INVALID_ID, ID_NULL
+from application.errror_codes import ID_NOT_FOUND, INVALID_ID, ID_NULL
 from domain.repositories.order_repository import OrderRepository
 from domain.value_objects.order_status import OrderStatus
 from shared.uuid_utils import is_valid_uuid4
