@@ -21,6 +21,7 @@ def publish_order(order: Order, user: User):
             credentials=credentials
         )
     )
+    
     channel = connection.channel()
     exchange_name = "orders"
 

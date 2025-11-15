@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 
-from application.errror_codes import EMAIL_NULL, EXISTANT_EMAIL, INVALID_EMAIL, INVALID_PASSWORD, PASSWORD_NULL, NAME_NULL, REQUEST_NULL
+from error_codes import EMAIL_NULL, EXISTANT_EMAIL, INVALID_EMAIL, INVALID_PASSWORD, PASSWORD_NULL, NAME_NULL, REQUEST_NULL
 from domain.models.user import User
 from domain.repositories.user_repository import UserRepository
 from shared.email_utils import is_valid_email
@@ -57,7 +57,8 @@ class CreateUserUseCase:
             name=input.name,
             email=input.email,
             password_hash=hash_password(input.password),
-            created_at=datetime.now(timezone.utc))
+            created_at=datetime.now(timezone.utc)
+        )
         
         self.user_repository.add(user)
 

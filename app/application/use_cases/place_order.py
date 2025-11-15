@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 import uuid
 
-from application.errror_codes import INVALID_USER_ID, REQUEST_NULL, USER_ID_NOT_FOUND, USER_ID_NULL, VALUE_CANNOT_BE_LESS_THAN_ZERO
+from error_codes import INVALID_USER_ID, REQUEST_NULL, USER_ID_NOT_FOUND, USER_ID_NULL, VALUE_CANNOT_BE_LESS_THAN_ZERO
 from domain.models.order import Order
 from domain.repositories.order_repository import OrderRepository
 from domain.repositories.user_repository import UserRepository
@@ -25,7 +25,8 @@ class PlaceOrderUseCase:
     def __init__(
             self, 
             user_repository: UserRepository,
-            order_repository: OrderRepository):
+            order_repository: OrderRepository
+        ):
         self.user_repository = user_repository
         self.order_repository = order_repository
 
@@ -61,7 +62,8 @@ class PlaceOrderUseCase:
             user_id=user.id,
             status=OrderStatus.PENDING.value,
             total_amount=input.total_amount,
-            created_at=datetime.now(timezone.utc))
+            created_at=datetime.now(timezone.utc)
+        )
         
         self.order_repository.add(order)
 
